@@ -1,4 +1,4 @@
-FROM openjdk:11.0.11-jre-buster
+FROM hunterza/maven-graalvm
 RUN mvn -f pom.xml clean install
 ADD target/ip-service.jar ip-service.jar
 EXPOSE 8080
