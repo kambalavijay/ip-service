@@ -14,11 +14,25 @@ public class IPAddressController {
     @GetMapping
     public String getIPAddress(){
         InetAddress ip = null;
-        try {
+        /*try {
+        gcloud container clusters get-credentials kvijay9-cluster-1  --zone us-central1-c
+
+        docker run -ti --rm -p 8080:8080 gcr.io/robust-form-315110/ip-service@sha256:e6ae35c0ff5db8068e5544ddcf3d9f18c88d0a8e1ac8ab2844ff36546b2421d1
+
+        kubectl run ip-service --image=gcr.io/robust-form-315110/ip-service@sha256:e6ae35c0ff5db8068e5544ddcf3d9f18c88d0a8e1ac8ab2844ff36546b2421d1 --port=8080
+
             ip = InetAddress.getLocalHost();
         } catch ( UnknownHostException  e) {
             e.printStackTrace();
-        }
+        }*/
         return ip.toString();
     }
 }
+/*
+* ip-service/10.116.0.8
+*
+*
+*
+*
+*
+* */
