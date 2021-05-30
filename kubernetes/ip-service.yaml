@@ -2,93 +2,126 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    deployment.kubernetes.io/revision: "1"
+    deployment.kubernetes.io/revision: "2"
+    gcb-build-id: efab9c23-577e-44aa-a119-2eec380f3f87
+    gcb-trigger-id: f31aec79-7063-4d54-ad4c-4c87c3727f9f
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"1","gcb-build-id":"efab9c23-577e-44aa-a119-2eec380f3f87","gcb-trigger-id":"f31aec79-7063-4d54-ad4c-4c87c3727f9f"},"creationTimestamp":"2021-05-29T05:22:06Z","generation":1,"labels":{"app":"ip-service","app.kubernetes.io/managed-by":"gcp-cloud-build-deploy","app.kubernetes.io/name":"ip-service","app.kubernetes.io/version":"a475ce1872a1092f33bc20005f4a42ba40af06a6"},"managedFields":[{"apiVersion":"apps/v1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:app":{}}},"f:spec":{"f:progressDeadlineSeconds":{},"f:replicas":{},"f:revisionHistoryLimit":{},"f:selector":{"f:matchLabels":{".":{},"f:app":{}}},"f:strategy":{"f:rollingUpdate":{".":{},"f:maxSurge":{},"f:maxUnavailable":{}},"f:type":{}},"f:template":{"f:metadata":{"f:labels":{".":{},"f:app":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"ip-service-1\"}":{".":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}}},"manager":"GoogleCloudConsole","operation":"Update","time":"2021-05-29T05:22:06Z"},{"apiVersion":"apps/v1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:deployment.kubernetes.io/revision":{}}},"f:status":{"f:availableReplicas":{},"f:conditions":{".":{},"k:{\"type\":\"Available\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}},"k:{\"type\":\"Progressing\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}}},"f:observedGeneration":{},"f:readyReplicas":{},"f:replicas":{},"f:updatedReplicas":{}}},"manager":"kube-controller-manager","operation":"Update","time":"2021-05-29T05:22:16Z"}],"name":"ip-service","namespace":"default","resourceVersion":"293018","selfLink":"/apis/apps/v1/namespaces/default/deployments/ip-service","uid":"f7744ef4-29f6-4922-8662-e42741ee653e"},"spec":{"progressDeadlineSeconds":600,"replicas":3,"revisionHistoryLimit":10,"selector":{"matchLabels":{"app":"ip-service"}},"strategy":{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"},"template":{"metadata":{"annotations":{"gcb-build-id":"efab9c23-577e-44aa-a119-2eec380f3f87","gcb-trigger-id":"f31aec79-7063-4d54-ad4c-4c87c3727f9f"},"creationTimestamp":null,"labels":{"app":"ip-service","app.kubernetes.io/managed-by":"gcp-cloud-build-deploy","app.kubernetes.io/name":"ip-service","app.kubernetes.io/version":"a475ce1872a1092f33bc20005f4a42ba40af06a6"}},"spec":{"containers":[{"image":"gcr.io/robust-form-315110/ip-service:v1","imagePullPolicy":"IfNotPresent","name":"ip-service-1","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File"}],"dnsPolicy":"ClusterFirst","restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"terminationGracePeriodSeconds":30}}},"status":{"availableReplicas":3,"conditions":[{"lastTransitionTime":"2021-05-29T05:22:16Z","lastUpdateTime":"2021-05-29T05:22:16Z","message":"Deployment has minimum availability.","reason":"MinimumReplicasAvailable","status":"True","type":"Available"},{"lastTransitionTime":"2021-05-29T05:22:06Z","lastUpdateTime":"2021-05-29T05:22:16Z","message":"ReplicaSet \"ip-service-55b5dfcfb\" has successfully progressed.","reason":"NewReplicaSetAvailable","status":"True","type":"Progressing"}],"observedGeneration":1,"readyReplicas":3,"replicas":3,"updatedReplicas":3}}
   creationTimestamp: "2021-05-29T05:22:06Z"
-  generation: 1
+  generation: 2
   labels:
     app: ip-service
+    app.kubernetes.io/managed-by: gcp-cloud-build-deploy
+    app.kubernetes.io/name: ip-service
+    app.kubernetes.io/version: a475ce1872a1092f33bc20005f4a42ba40af06a6
   managedFields:
-  - apiVersion: apps/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:metadata:
-        f:labels:
-          .: {}
-          f:app: {}
-      f:spec:
-        f:progressDeadlineSeconds: {}
-        f:replicas: {}
-        f:revisionHistoryLimit: {}
-        f:selector:
-          f:matchLabels:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
             .: {}
             f:app: {}
-        f:strategy:
-          f:rollingUpdate:
-            .: {}
-            f:maxSurge: {}
-            f:maxUnavailable: {}
-          f:type: {}
-        f:template:
-          f:metadata:
-            f:labels:
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector:
+            f:matchLabels:
               .: {}
               f:app: {}
-          f:spec:
-            f:containers:
-              k:{"name":"ip-service-1"}:
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:labels:
                 .: {}
-                f:image: {}
-                f:imagePullPolicy: {}
-                f:name: {}
-                f:resources: {}
-                f:terminationMessagePath: {}
-                f:terminationMessagePolicy: {}
-            f:dnsPolicy: {}
-            f:restartPolicy: {}
-            f:schedulerName: {}
-            f:securityContext: {}
-            f:terminationGracePeriodSeconds: {}
-    manager: GoogleCloudConsole
-    operation: Update
-    time: "2021-05-29T05:22:06Z"
-  - apiVersion: apps/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:metadata:
-        f:annotations:
-          .: {}
-          f:deployment.kubernetes.io/revision: {}
-      f:status:
-        f:availableReplicas: {}
-        f:conditions:
-          .: {}
-          k:{"type":"Available"}:
+                f:app: {}
+            f:spec:
+              f:containers:
+                k:{"name":"ip-service-1"}:
+                  .: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+      manager: GoogleCloudConsole
+      operation: Update
+      time: "2021-05-29T05:22:06Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:gcb-build-id: {}
+            f:gcb-trigger-id: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:labels:
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+        f:spec:
+          f:template:
+            f:metadata:
+              f:annotations:
+                .: {}
+                f:gcb-build-id: {}
+                f:gcb-trigger-id: {}
+              f:labels:
+                f:app.kubernetes.io/managed-by: {}
+                f:app.kubernetes.io/name: {}
+                f:app.kubernetes.io/version: {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: "2021-05-30T03:32:51Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
             .: {}
-            f:lastTransitionTime: {}
-            f:lastUpdateTime: {}
-            f:message: {}
-            f:reason: {}
-            f:status: {}
-            f:type: {}
-          k:{"type":"Progressing"}:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
             .: {}
-            f:lastTransitionTime: {}
-            f:lastUpdateTime: {}
-            f:message: {}
-            f:reason: {}
-            f:status: {}
-            f:type: {}
-        f:observedGeneration: {}
-        f:readyReplicas: {}
-        f:replicas: {}
-        f:updatedReplicas: {}
-    manager: kube-controller-manager
-    operation: Update
-    time: "2021-05-29T05:22:16Z"
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updatedReplicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-05-30T03:32:58Z"
   name: ip-service
   namespace: default
-  resourceVersion: "293018"
+  resourceVersion: "767014"
   selfLink: /apis/apps/v1/namespaces/default/deployments/ip-service
   uid: f7744ef4-29f6-4922-8662-e42741ee653e
 spec:
@@ -105,17 +138,23 @@ spec:
     type: RollingUpdate
   template:
     metadata:
+      annotations:
+        gcb-build-id: efab9c23-577e-44aa-a119-2eec380f3f87
+        gcb-trigger-id: f31aec79-7063-4d54-ad4c-4c87c3727f9f
       creationTimestamp: null
       labels:
         app: ip-service
+        app.kubernetes.io/managed-by: gcp-cloud-build-deploy
+        app.kubernetes.io/name: ip-service
+        app.kubernetes.io/version: a475ce1872a1092f33bc20005f4a42ba40af06a6
     spec:
       containers:
-      - image: gcr.io/robust-form-315110/ip-service:v1
-        imagePullPolicy: IfNotPresent
-        name: ip-service-1
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
+        - image: gcr.io/robust-form-315110/ip-service:v1
+          imagePullPolicy: IfNotPresent
+          name: ip-service-1
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
@@ -124,19 +163,19 @@ spec:
 status:
   availableReplicas: 3
   conditions:
-  - lastTransitionTime: "2021-05-29T05:22:16Z"
-    lastUpdateTime: "2021-05-29T05:22:16Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  - lastTransitionTime: "2021-05-29T05:22:06Z"
-    lastUpdateTime: "2021-05-29T05:22:16Z"
-    message: ReplicaSet "ip-service-55b5dfcfb" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  observedGeneration: 1
+    - lastTransitionTime: "2021-05-29T05:22:16Z"
+      lastUpdateTime: "2021-05-29T05:22:16Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-05-29T05:22:06Z"
+      lastUpdateTime: "2021-05-30T03:32:58Z"
+      message: ReplicaSet "ip-service-cfbcff56c" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+  observedGeneration: 2
   readyReplicas: 3
   replicas: 3
   updatedReplicas: 3
