@@ -16,6 +16,7 @@ public class IPAddressController {
 
     @GetMapping
     public String getIPAddress(){
+        logger.info("ipadrs api is invoked");
         InetAddress ip = null;
         try {
             ip = InetAddress.getLocalHost();
@@ -23,6 +24,7 @@ public class IPAddressController {
             e.printStackTrace();
         }
         logger.info("IpAddress : " + ip.toString());
+        logger.info("ipadrs api is invocation is ended");
         return ip.toString();
         /*gcloud container clusters get-credentials kvijay9-cluster-1  --zone us-central1-c
 
