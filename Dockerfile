@@ -1,4 +1,15 @@
-FROM openjdk:11.0.11-jre-buster
+#
+# Build stage
+#
+FROM adoptopenjdk/maven-openjdk11 as build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean install
+
+#
+# Package stage
+#
+FROM openjdk:11-jre-slim
 ADD target/ip-service.jar ip-service.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "ip-service.jar"]
