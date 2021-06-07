@@ -14,7 +14,7 @@ public class Feature1Controller {
 
     @GetMapping
     public String getFeature1(){
-        logger.info("feature1 invoked");
+        logger.info("feature1 invoked...");
         return "feature1";
     }
 
