@@ -100,7 +100,7 @@ spec:
         app: ip-service
     spec:
       containers:
-        - image: gcr.io/robust-form-315110/github_kambalavijay_ip-service
+        - image: gcr.io/robust-form-315110/github.com/kambalavijay/ip-service
           imagePullPolicy: IfNotPresent
           name: ip-service-sha256-1
 ---
