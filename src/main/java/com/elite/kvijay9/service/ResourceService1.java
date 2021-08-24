@@ -22,6 +22,10 @@ public class ResourceService1 {
         resourceRepository.updateLastLoginDetails(id);
     }
 
+    public int behave1(){
+        return 0;
+    }
+
     public Resource getResourceById(Long id){
         return resourceRepository.getById(id);
     }
