@@ -25,8 +25,6 @@ public class ResourceService {
         Resource resource = resourceRepository.getById(id);
         ResourceResponse resourceResponse = new ResourceResponse();
         resourceResponse.setResource(resource);
-        resourceResponse.setStatus(200);
-        resourceResponse.setLogAttrs(List.of("attr1", "attr2", "attr3"));
         return resourceResponse;
     }
 
