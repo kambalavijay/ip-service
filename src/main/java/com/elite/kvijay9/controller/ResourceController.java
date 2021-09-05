@@ -29,9 +29,6 @@ public class ResourceController {
     @GetMapping("/{id}")
     public ResponseEntity<ResourceResponse> getRespourceById(@PathVariable("id") Long id){
         ResourceResponse resourceResponse = resourceService.getResourceById(id);
-        for (int i = 0; i < resourceResponse.getLogAttrs().size(); i++) {
-            logger.info(resourceResponse.getLogAttrs().get(i));
-        }
         return ResponseEntity.ok(resourceResponse);
     }
 
