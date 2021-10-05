@@ -1,8 +1,10 @@
 package com.elite.kvijay9.controller;
 
+import com.elite.kvijay9.envelope.ResponseEnvelope;
 import com.elite.kvijay9.model.Resource;
 import com.elite.kvijay9.model.ResourceResponse;
 import com.elite.kvijay9.service.ResourceService;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,19 +18,20 @@ import java.util.Optional;
 public class ResourceController {
 
     @Autowired
-    ResourceService resourceService;
+    private ResourceService resourceService;
 
-    Logger logger = LoggerFactory.getLogger(ResourceController.class);
+    private Logger logger = LoggerFactory.getLogger(ResourceController.class);
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateResource(@PathVariable("id") Long id) throws Exception {
+    public ResponseEntity<String> updateResourceById(@PathVariable("id") Long id) {
         resourceService.updateResource(id);
         return ResponseEntity.ok("Success");
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ResourceResponse> getRespourceById(@PathVariable("id") Long id){
-        ResourceResponse resourceResponse = resourceService.getResourceById(id);
+    public ResponseEntity<ResourceResponse> getResourceById(@PathVariable("id") Long id){
+        ResponseEnvelope<ResourceResponse> responseEnvelope = resourceService.getResourceById(id);
+        ResourceResponse resourceResponse = responseEnvelope.getResponse();
         return ResponseEntity.ok(resourceResponse);
     }
 

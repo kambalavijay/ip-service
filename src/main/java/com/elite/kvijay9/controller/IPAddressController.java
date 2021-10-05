@@ -26,16 +26,6 @@ public class IPAddressController {
         logger.info("IpAddress : " + ip.toString());
         logger.info("ipadrs api is invocation is ended");
         return ip.toString();
-        /*
-        mvn com.google.cloud.tools:jib-maven-plugin:build -Dimage=gcr.io/$GOOGLE_CLOUD_PROJECT/ip-service:v1
-
-        gcloud container clusters get-credentials kvijay9-cluster-1  --zone us-central1-c
-
-        docker run -ti --rm -p 8080:8080 gcr.io/robust-form-315110/ip-service@sha256:e6ae35c0ff5db8068e5544ddcf3d9f18c88d0a8e1ac8ab2844ff36546b2421d1
-
-        kubectl run ip-service --image=gcr.io/robust-form-315110/ip-service@sha256:e6ae35c0ff5db8068e5544ddcf3d9f18c88d0a8e1ac8ab2844ff36546b2421d1 --port=8080
-
-        */
     }
 }
 /*
