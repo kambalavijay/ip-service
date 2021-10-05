@@ -4,21 +4,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
-public class ResourceResponse {
+public class ResourceResponse extends Response {
 
     private Resource resource;
     @JsonIgnore
     private List<String> logAttrs;
-    private int status;
 
     public ResourceResponse() {
 
     }
 
-    public ResourceResponse(Resource resource, List<String> logAttrs, int status) {
+    public ResourceResponse(Resource resource, List<String> logAttrs) {
         this.resource = resource;
         this.logAttrs = logAttrs;
-        this.status = status;
     }
 
     public Resource getResource() {
@@ -37,11 +35,13 @@ public class ResourceResponse {
         this.logAttrs = logAttrs;
     }
 
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
+    @Override
+    public String toString() {
+        return "ResourceResponse{" +
+                "resource=" + resource +
+                ", logAttrs=" + logAttrs +
+                ", code=" + code +
+                ", status=" + status +
+                '}';
     }
 }
