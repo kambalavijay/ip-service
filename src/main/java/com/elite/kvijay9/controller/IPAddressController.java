@@ -2,6 +2,9 @@ package com.elite.kvijay9.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +17,9 @@ import java.net.UnknownHostException;
 public class IPAddressController {
     private final Logger logger = LoggerFactory.getLogger(IPAddressController.class);
 
+
     @GetMapping
-    public String getIPAddress(){
+    public ResponseEntity<String> getIPAddress(){
         logger.info("ipadrs api is invoked");
         InetAddress ip = null;
         try {
@@ -25,7 +29,7 @@ public class IPAddressController {
         }
         logger.info("IpAddress : " + ip.toString());
         logger.info("ipadrs api is invocation is ended");
-        return ip.toString();
+        return ResponseEntity.ok(ip.toString());
     }
 }
 /*

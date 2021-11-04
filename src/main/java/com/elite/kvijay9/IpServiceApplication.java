@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 /*@Configuration
 @SpringBootApplication
@@ -25,6 +26,11 @@ public class IpServiceApplication {
 		registration.setFilter(commonFilter);
 		registration.setOrder(1);
 		return registration;
+	}
+
+	@Bean
+	public RestTemplate restTemplate(){
+		return new RestTemplate();
 	}
 
 }

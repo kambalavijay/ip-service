@@ -10,6 +10,21 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+// db -> repository
+// service -> service, component
+// controller -> restcontroller
+
+// spring container -> bean /objects
+
+// Java-> you can't objects for interfaces
+// objects -> concrete classes
+
+// connection
+// statement
+// query -> select * from "table"
+// execute
+// parse the resultset(server)
+
 @Repository
 public interface ResourceRepository extends JpaRepository<Resource, Long> {
 
@@ -21,10 +36,9 @@ public interface ResourceRepository extends JpaRepository<Resource, Long> {
     @Query(value = "update resource r set r.lastupdated = current_timestamp() where r.id = ?1", nativeQuery = true)
     void updateLastLoginDetails(Long id);
 
-    //@Query("update Resource resource set resource.lastupdated = current_timestamp where resource.id = :id", nativeSQl = true)
-    /*@Query(value = "update resource r set r.lastupdated = current_timestamp() where r.id = ?1; SELECT SLEEP('5')", nativeQuery = true)
+    /*//@Query("update Resource resource set resource.lastupdated = current_timestamp where resource.id = :id", nativeSQl = true)
+    //*@Query(value = "update resource r set r.lastupdated = current_timestamp() where r.id = ?1; SELECT SLEEP('5')", nativeQuery = true)
     void updateLastLoginDetails(Long id);*/
 
     Resource getById(@Param("id") Long id);
-
 }

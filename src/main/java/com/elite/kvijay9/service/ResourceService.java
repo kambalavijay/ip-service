@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 @Service
 public class ResourceService {
 
-    @Autowired
+    @Autowired // dependency injection
     private ResourceRepository resourceRepository;
 
     @Transactional
@@ -21,15 +21,9 @@ public class ResourceService {
         resourceRepository.updateLastLoginDetails(id);
     }
 
-    public ResponseEnvelope<ResourceResponse> getResourceById(Long id){
+    public Resource getResourceById(Long id){
         Resource resource = resourceRepository.getById(id);
-        ResourceResponse resourceResponse = new ResourceResponse();
-        resourceResponse.setResource(resource);
-        resourceResponse.setCode(200);
-        resourceResponse.setStatus(Boolean.TRUE);
-        ResponseEnvelope<ResourceResponse> responseEnvelope = new ResponseEnvelope<>();
-        responseEnvelope.setResponse(resourceResponse);
-        return responseEnvelope;
+        return resource;
     }
 
     public Resource addResource(Resource resource){
