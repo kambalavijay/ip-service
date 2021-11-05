@@ -42,6 +42,7 @@ public class StudentController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String deleteStudentById(@PathVariable(name = "id") Long id) {
+         // comment has been added
          studentService.deleteStudentById(id);
          return "deleted";
     }
