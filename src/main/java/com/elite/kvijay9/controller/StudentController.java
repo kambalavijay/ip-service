@@ -48,6 +48,7 @@ public class StudentController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public Student updateStudentById(@PathVariable(name = "id") Long id, @RequestBody Student student) {
+        // comment has been added
         return studentService.updateStudentById(id, student);
     }
 
