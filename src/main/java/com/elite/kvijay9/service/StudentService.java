@@ -6,8 +6,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class StudentService {
@@ -15,12 +17,25 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
-    public String createStudent(Student student) throws SQLException {
-        studentRepository.save(student);
-        return "student record created successfully";
+    public Student createStudent(Student student) {
+        return studentRepository.save(student); // insert
     }
 
-    public Student getStudent(Long id) throws SQLException {
-        return null;
+    public Student getStudentById(Long id) {
+        return studentRepository.getById(id); // select * from student where id = ?
     }
+
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
+    }
+
+    public void deleteStudentById(Long id) {
+        studentRepository.deleteById(id);
+    }
+
+    public Student updateStudentById(Long id, Student student) {
+        student.setId(id);
+        return studentRepository.save(student);
+    }
+
 }
