@@ -30,6 +30,13 @@ public class StudentService {
     public List<Student> getAllStudents() {
         // comment has been added
         return studentRepository.findAll();
+        // select * from employee
+    }
+
+    public List<Student> getAllStudentsByCity(String city) {
+        // comment has been added
+        return studentRepository.getAllByCityEquals(city);
+        // select * from employee where city=?;
     }
 
     public void deleteStudentById(Long id) {

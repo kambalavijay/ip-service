@@ -2,16 +2,10 @@ package com.elite.kvijay9.controller;
 
 import com.elite.kvijay9.model.Student;
 import com.elite.kvijay9.service.StudentService;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,11 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/student")
 public class StudentController {
 
-    // Dependency injection || inversion dependency
     @Autowired
     private StudentService studentService;
 
-    @PostMapping
+    @RequestMapping(method = RequestMethod.POST)
     public Student createStudent(@RequestBody Student student) {
         return studentService.createStudent(student);
     }
@@ -35,9 +28,14 @@ public class StudentController {
         return studentService.getStudentById(id);
     }
 
+    // http://localhost:8080/api/v1/student GET
     @RequestMapping(method = RequestMethod.GET)
-    public List<Student> getAllStudents() {
-        return studentService.getAllStudents();
+    public List<Student> getAllStudents(HttpServletRequest request) {
+        String city = request.getParameter("city");
+        // 1 param
+        // read multiple params
+        // List<Object>
+        return studentService.getAllStudentsByCity(city);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -52,18 +50,4 @@ public class StudentController {
         // comment has been added
         return studentService.updateStudentById(id, student);
     }
-
-
-// api/v1/student -> post
-// api/v1/student/{id} -> get particular student
-// api/v1/student -> get
-// api/v1/student/{id} -> delete
-// api/v1/student/{id} -> put, requestbody
-
-
-
-    // getstudentbyid -> get
-    // getallstudent -> get
-    // updatestudentbyid -> put
-    // deletestudentbyid -> delete
 }
