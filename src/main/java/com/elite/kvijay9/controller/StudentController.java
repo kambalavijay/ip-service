@@ -2,14 +2,9 @@ package com.elite.kvijay9.controller;
 
 import com.elite.kvijay9.model.Student;
 import com.elite.kvijay9.service.StudentService;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,8 +26,12 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Student getStudentById(@PathVariable(name = "id") Long id) {
-        return studentService.getStudentById(id);
+    public ResponseEntity<Student> getStudentById(@PathVariable(name = "id") Long id) {
+        Student student = studentService.getStudentById(id);
+        if(student == null){
+            return (ResponseEntity<Student>) ResponseEntity.notFound();
+        }
+        return ResponseEntity.ok(student);
     }
 
     @RequestMapping(method = RequestMethod.GET)
