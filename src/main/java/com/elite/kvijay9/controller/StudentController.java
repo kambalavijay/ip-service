@@ -5,6 +5,7 @@ import com.elite.kvijay9.service.StudentService;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +25,12 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Student getStudentById(@PathVariable(name = "id") Long id) {
-        return studentService.getStudentById(id);
+    public ResponseEntity<Student> getStudentById(@PathVariable(name = "id") Long id) {
+        Student student = studentService.getStudentById(id);
+        if(student == null){
+            return (ResponseEntity<Student>) ResponseEntity.notFound();
+        }
+        return ResponseEntity.ok(student);
     }
 
     // http://localhost:8080/api/v1/student GET
