@@ -15,9 +15,7 @@ public class HelloWordController {
         if(name.equals("vijay")){
             return "Hello " + name + ", Musalaiah";
         }
-        else{
-            return "Hello " + name;
-        }
+        return "Hello " + name;
     }
 
 }
