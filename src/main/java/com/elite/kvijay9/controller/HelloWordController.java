@@ -12,14 +12,12 @@ public class HelloWordController {
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     public String hello(@PathVariable("name") String name){
-
         if(name.equals("vijay")){
             return "Hello " + name + ", Musalaiah";
         }
         else{
             return "Hello " + name;
         }
-
     }
 
 }
