@@ -12,7 +12,7 @@
 	<artifactId>ip-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ip-service</name>
-	<description>ip service</description>
+	<description>ip-service</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
