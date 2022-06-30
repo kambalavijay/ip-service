@@ -7,7 +7,7 @@ public class RefelctionExample {
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchFieldException {
 
         CustomJModel dialog = new CustomJModel();
-        dialog.setVisibility(false); // this is resulting erro in the flow right?
+        dialog.setVisibility(false); // this is resulting error in the flow right?
 
         // follow the alternate
         Class<?> clazz = Class.forName("com.example.demo.CustomJModel");
